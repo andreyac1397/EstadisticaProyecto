@@ -1,0 +1,117 @@
+/* ===== Fondo exterior ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6fb;
+  background-image:
+    radial-gradient(#dfe6f3 1px, transparent 1px),
+    radial-gradient(#e9eff9 1px, transparent 1px);
+  background-position: 0 0, 12px 12px;
+  background-size: 24px 24px;
+  scroll-behavior: smooth; /* scroll suave por defecto */
+}
+
+/* ===== Caja blanca central para TODO el contenido ===== */
+.main-container{
+  max-width: 1100px;
+  margin: 0 auto 32px auto;     /* centrado + espacio abajo */
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
+  padding: 0 18px 24px 18px;     /* padding interno */
+}
+
+/* Oculta título/autor/fecha estándar de RMarkdown */
+#header, h1.title, h1.title.toc-ignore, .author, .date { display: none !important; }
+
+/* ===== Banner alineado a la caja blanca ===== */
+.title-banner{
+  width: 100%;                 /* mismo ancho que .main-container */
+  box-sizing: border-box;
+  margin: 18px 0 16px;
+  padding: 24px 20px;
+
+  background: linear-gradient(135deg, #2f4356, #3f5b76);
+  color:#fff;
+  text-align:center;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.12);
+}
+.title-banner .title-line{
+  font-weight: 900;
+  font-size: clamp(1.6rem, 2.2vw + 1rem, 2.4rem);
+  line-height: 1.25;
+  letter-spacing: .2px;
+  text-shadow: 0 1px 2px rgba(0,0,0,.25);
+  margin: 0;
+}
+
+/* ===== Título de sección moderno (sin “###”) ===== */
+
+.sec-title{
+  margin: 18px auto 10px;
+  padding: 10px 14px;
+  background: #0f0f10;           /* fondo negro (ligeramente suave) */
+  color: #f5f5f5;                /* texto claro */
+  border-left: 6px solid #ffffff;/* barrita blanca */
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: .2px;
+}
+
+
+
+
+/* ===== Paneles (llenan el ancho de la caja blanca) ===== */
+.panel{
+  border-radius: 14px;
+  padding: 1.1rem 1.3rem;
+  margin: 1rem 0;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+.panel.azul  { background:#eaf3ff; border-left:6px solid #1a73e8; }
+.panel.verde { background:#e8f5e9; border-left:6px solid #34a853; }
+.panel.rosa  { background:#fdeef0; border-left:6px solid #ea4335; }
+.panel.gris  { background:#f6f6f6; border-left:6px solid #999; }
+
+.panel p  { margin:.45rem 0; }
+.para-title { font-weight: 700; }  /* negrita de inicio de párrafo */
+
+/* ===== Panel especial: Tabla de contenido (solo este) ===== */
+.toc-panel{
+  background: #eef2ff;            /* fondo del TOC */
+  border-left: 6px solid #6366f1;  /* barra izquierda */
+}
+.toc-panel a{ color:#4f46e5; }
+.toc-panel a:hover{ text-decoration: underline; }
+.toc-panel ul { list-style: none; margin:.4rem 0 0 .2rem; padding:0; }
+.toc-panel ul ul { margin-left:1rem; }
+.toc-panel li { margin:.25rem 0; }
+
+/* ===== Solo el panel de Forms (el que está después del ancla #forms) ===== */
+#forms + .panel.azul{
+  background: #fff8e1;          /* fondo del panel de Forms */
+  border-left-color: #f59e0b;   /* barra izquierda */
+}
+
+/* Botón para Forms */
+.btn-forms{
+  display:inline-block;
+  padding:.7rem 1.1rem;
+  border-radius:10px;
+  background:#2563eb;
+  color:#fff !important;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 4px 10px rgba(37,99,235,.25);
+}
+.btn-forms:hover{ filter:brightness(1.06); }
+
+/* Evitar que el banner tape al hacer scroll a las anclas */
+:root { --banner-offset: 110px; }
+:target, h1[id], h2[id], h3[id], h4[id] { scroll-margin-top: var(--banner-offset); }
+
+/* Compactar encabezados markdown si alguno se usa */
+h2, h3, h4 { margin-top: 1rem; }
